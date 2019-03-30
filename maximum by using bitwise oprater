@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void calculate_the_maximum(int, int);  // function declaration
+
+int main() {
+    int n, k;
+  
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
+ 
+    return 0;
+}
+
+void calculate_the_maximum(int n, int k) {
+    int andMax,orMax,xorMax;
+    andMax=orMax=xorMax=0;
+
+    // loop through number set
+    for (int i=1; i<=n; i++){
+        for (int j=i+1; j<=n; j++) {
+            // calculate bitwise operations
+            int and=j&i;
+            int or =j|i;
+            int xor=j^i;
+
+            // update max vals if criterea met
+            if (and<k && and>andMax)
+                andMax = and;
+            if (or<k  && or>orMax)
+                orMax  = or;
+            if (xor<k && xor>xorMax)
+                xorMax = xor;
+        }
+    }
+
+    // print results
+    printf("%d\n%d\n%d\n",andMax,orMax,xorMax);
+
+    return 0;
+}
