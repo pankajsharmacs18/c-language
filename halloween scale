@@ -1,0 +1,23 @@
+include <stdio.h>
+#include <math.h>
+
+int main (void)
+{
+    int p, d, m, s;
+    int n, t;
+    
+    scanf("%d%d%d%d", &p, &d, &m, &s);
+    if (s < p) {
+        n = 0;
+    } else {
+        n = 1 + (p - m) / d;
+        t = n * (2 * p - (n - 1) * d) / 2;
+        if (s >= t) {
+            n += (s - t) / m;
+        } else {
+            int b = 2 * p + d;
+            n = (b - sqrt(b * b - 8 * d * s)) / (2 * d);
+        }
+    }
+    printf("%d\n", n);
+}
