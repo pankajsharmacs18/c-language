@@ -1,0 +1,27 @@
+#include<stdio.h>
+main()
+{
+    int t,i;
+    long long unsigned int m,n,s,z,result;
+    scanf("%d",&t);
+    for(i=0;i<t;i++)
+    {
+        scanf("%llu%llu%llu",&n,&m,&s);
+        if(m==n)
+        {
+            if(s==1)
+            result=m;
+            else
+            result=s-1;
+        }
+        else
+        {
+            z=m%n;
+            if(s+z-1<=n)
+            result=s+z-1;
+            else
+            result=s+z-n-1;
+        }
+        printf("%llu\n",result);
+    }
+}
