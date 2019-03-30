@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+void sort(char *str, int x, int y){
+    for(int i=x;i<=y;i++){
+        char min = str[i];
+        int min_i = i;
+        for(int j=i;j<=y;j++){
+            if(min>str[j]){
+                min=str[j];
+                min_i = j;
+            }
+
+        }
+        char ch = str[min_i];
+        str[min_i]=str[i];
+        str[i] = ch;
+    }
+}
+void lexically_greater(char *str){
+    int i = strlen(str)-2;
+    while(i>=0 && str[i+1]<=str[i]){
+        i--;
+    }
+    if(i<0){
+        printf("no answer\n");
+        return;
+    }
+    int ch_i = i;
+    for(int j=i+1;j<strlen(str);j++){
+        if(str[j]>str[i] && str[j]<=str[i+1]){
+            ch_i = j;
+        }
+    }
+    char ch = str[i];
+    str[i]=str[ch_i];
+    str[ch_i]=ch;
+    sort(str, i+1, strlen(str)-1);
+    printf("%s\n", str);
+}
+int main() {
+    int t;
+    scanf("%d", &t);
+    for(int i=0;i<t;i++){
+        char *str=malloc(sizeof(char)*100);
+        scanf("%s", str);
+        lexically_greater(str);
+    }
+    return 0;
+}
