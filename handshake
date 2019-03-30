@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+    int i,n;
+    scanf("%d",&n);
+    int h,a[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        h=((a[i])*(a[i]-1))/2;
+        printf("%d\n",h);
+        h=0;
+    }
+    return 0;
+}
