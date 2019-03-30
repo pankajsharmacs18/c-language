@@ -1,0 +1,21 @@
+#include<stdio>
+using namespace std;
+
+int main()
+{
+    int m,n,ans;
+    scanf("%d %d",&m,&n);
+
+    if(m%2==1 && n%2==1) {
+        m = m+1;
+        n = n+1;
+    }
+    if(m%2==1) m = m+1;
+    if(n%2==1) n = n+1;
+
+    ans = (m*n)/4;
+
+    printf("%d",ans);
+
+    return 0;
+}
