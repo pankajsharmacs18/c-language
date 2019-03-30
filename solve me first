@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int solveMeFirst(int a, int b) ;
+int main()
+{
+    int num1,num2,sum;
+    scanf("%d %d",&num1,&num2); 
+    sum = solveMeFirst(num1,num2);
+    printf("%d",sum);
+}
+int solveMeFirst(int a,int b)
+{
+int  y;
+y=a+b;
+    return y ;
+}
